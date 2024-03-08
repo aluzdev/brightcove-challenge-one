@@ -1,24 +1,25 @@
-import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.js";
+const videoURL =
+  "https://players.brightcove.net/6415475887001/2mvEoAvsy_default/index.html?videoId=6348433849112";
 
-document.querySelector("#app").innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`;
+/**
+ * Skips the video forward to a specified time.
+ *
+ * @param {HTMLElement} iframe - The iframe element containing the video.
+ * @param {number} timeInSeconds - The time to skip to in the video, in seconds.
+ */
+const skipVideoTo = (iframe, timeInSeconds) => {
+  const newSrc = `${videoURL}&t=${timeInSeconds}`;
+  iframe.src = newSrc;
+};
 
-setupCounter(document.querySelector("#counter"));
+const main = () => {
+  const iframe = document.getElementById("exercise-video");
+  const delayBeforeSkip = 10000; // Time in milliseconds before skipping
+  const skipToTime = 30; // Time in seconds to skip to in the video
+
+  setTimeout(() => {
+    skipVideoTo(iframe, skipToTime);
+  }, delayBeforeSkip);
+};
+
+document.addEventListener("DOMContentLoaded", main);

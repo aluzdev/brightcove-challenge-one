@@ -6,15 +6,10 @@
     <title>challenge 1</title>
   </head>
   <body>
-    <p>
-      <button class="bcls-button" onclick="playVideo()">Play Video</button>
-
-      <button class="bcls-button" onclick="pauseVideo()">Pause Video</button>
-    </p>
-
     <div style="position: relative; display: block; max-width: 960px">
       <div style="padding-top: 56.25%">
         <iframe
+          id="exercise-video"
           src="https://players.brightcove.net/6415475887001/2mvEoAvsy_default/index.html?videoId=6348433849112"
           allowfullscreen=""
           allow="encrypted-media"
@@ -30,5 +25,6 @@
         ></iframe>
       </div>
     </div>
+    <script src="./main.js"></script>
   </body>
 </html>
