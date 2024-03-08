@@ -9,6 +9,7 @@ const videoURL =
  */
 const skipVideoTo = (iframe, timeInSeconds) => {
   const newSrc = `${videoURL}&t=${timeInSeconds}`;
+  console.log("im trying to skip the video!");
   iframe.src = newSrc;
 };
 
